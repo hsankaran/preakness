@@ -1,4 +1,4 @@
-# derby-preakness
+# Preakness
 
 ### Summary
 
