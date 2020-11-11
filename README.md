@@ -6,21 +6,6 @@ This standard POC builds Aviatrix Transit with FireNet in Azure. Refer to the bi
 The test VMs will use ```~/.ssh/id_rsa.pub``` for ssh authentication, have port 22 open and be provided public IPs.
 In order to get the public IPs for the VMs you'll need to go to the Azure Console 
 
-### Test command examples
-
-#### iperf
-
-```
-iperf3 -c 10.21.3.20 -i 2 -t 30 -M 1400 -P 1 -p 5201
-iperf3 -s -p 5201
-```
-
-#### ntttcp
-
-```
-ntttcp -r
-ntttcp -s10.21.3.20
-```
 
 ### BOM
 
@@ -37,7 +22,7 @@ ntttcp -s10.21.3.20
 
 Component | Version
 --- | ---
-Aviatrix Controller | (6.2) UserConnect-6.2.1742 
+Aviatrix Controller | (6.2) UserConnect-6.2.1837 (Nov 10 Patch)
 Aviatrix Terraform Provider | 2.17
 Terraform | 0.12
 Azure Terraform Provider | 2.30
@@ -74,6 +59,22 @@ The variables are defined in ```terraform.tfvars```.
 - ```terraform init```
 - ```terraform plan```
 - ```terraform apply --auto-approve```
+
+### Test command examples
+
+#### iperf
+
+```
+iperf3 -c 10.21.3.20 -i 2 -t 30 -M 1400 -P 1 -p 5201
+iperf3 -s -p 5201
+```
+
+#### ntttcp
+
+```
+ntttcp -r
+ntttcp -s10.21.3.20
+```
 
 ### Backend Configuration (Optional)
 
