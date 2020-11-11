@@ -1,14 +1,4 @@
 // Preakness with Test Kit
-/*module "azure_transit_1" {
-  source        = "terraform-aviatrix-modules/azure-transit/aviatrix"
-  version       = "1.1.1"
-  cidr          = var.azure_transit_cidr1
-  region        = var.azure_region1
-  account       = var.azure_account_name
-  instance_size = var.instance_size
-  ha_gw         = var.ha_enabled
-}*/
-
 # Azure Transit Module
 module "azure_transit_1" {
   source                 = "terraform-aviatrix-modules/azure-transit-firenet/aviatrix"
@@ -24,32 +14,28 @@ module "azure_transit_1" {
 
 # Azure Spoke 1 
 module "azure_spoke1" {
-  source  = "terraform-aviatrix-modules/azure-spoke/aviatrix"
-  version = "1.1.1"
-  #source         = "git@github.com:terraform-aviatrix-modules/terraform-aviatrix-azure-spoke.git"
-  name          = var.azure_spoke1_name
-  cidr          = var.azure_spoke1_cidr
-  region        = var.azure_spoke1_region
-  account       = var.azure_account_name
-  instance_size = var.instance_size
-  ha_gw         = var.ha_enabled
-  #single_ip_snat = true
-  transit_gw = module.azure_transit_1.transit_gateway.gw_name
+  source         = "terraform-aviatrix-modules/azure-spoke/aviatrix"
+  version        = "1.1.1"
+  name           = var.azure_spoke1_name
+  cidr           = var.azure_spoke1_cidr
+  region         = var.azure_spoke1_region
+  account        = var.azure_account_name
+  instance_size  = var.instance_size
+  ha_gw          = var.ha_enabled
+  transit_gw     = module.azure_transit_1.transit_gateway.gw_name
 }
 
 # Azure Spoke 2
 module "azure_spoke2" {
-  source  = "terraform-aviatrix-modules/azure-spoke/aviatrix"
-  version = "1.1.1"
-  #source         = "git@github.com:terraform-aviatrix-modules/terraform-aviatrix-azure-spoke.git"
-  name          = var.azure_spoke2_name
-  cidr          = var.azure_spoke2_cidr
-  region        = var.azure_spoke2_region
-  account       = var.azure_account_name
-  instance_size = var.instance_size
-  ha_gw         = var.ha_enabled
-  #single_ip_snat = true
-  transit_gw = module.azure_transit_1.transit_gateway.gw_name
+  source     = "terraform-aviatrix-modules/azure-spoke/aviatrix"
+  version    = "1.1.1"
+  name           = var.azure_spoke2_name
+  cidr           = var.azure_spoke2_cidr
+  region         = var.azure_spoke2_region
+  account        = var.azure_account_name
+  instance_size  = var.instance_size
+  ha_gw          = var.ha_enabled
+  transit_gw     = module.azure_transit_1.transit_gateway.gw_name
 }
 
 # Test Azure RG + Instances
