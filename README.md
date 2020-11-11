@@ -25,7 +25,7 @@ ntttcp -s10.21.3.20
 ### BOM
 
 - 1 Aviatrix Transit FireNet in Azure with 2 spokes
-- 1 Custom Resource group with 2 Ubuntu 18.04 VMs with iperf3 and ntttcp installed
+- 1 Custom Resource group with 2 Ubuntu 18.04 VMs with iperf3 and ntttcp installed **(1 per spoke)**
 - Firewalls are provisioned but detached
 
 
