@@ -1,13 +1,33 @@
-# Preakness
+# Preakness with Test Kit
 
 ### Summary
 
 This standard POC builds Aviatrix Transit with FireNet in Azure. Refer to the bill of materials below for additional detail.
+The test VMs will use ```~/.ssh/id_rsa.pub``` for ssh authentication, have port 22 open and be provided public IPs.
+In order to get the public IPs for the VMs you'll need to go to the Azure Console 
+
+### Test command examples
+
+#### iperf
+
+```
+iperf3 -c 10.21.3.20 -i 2 -t 30 -M 1400 -P 1 -p 5201
+iperf3 -s -p 5201
+```
+
+#### ntttcp
+
+```
+ntttcp -r
+ntttcp -s10.21.3.20
+```
 
 ### BOM
 
 - 1 Aviatrix Transit FireNet in Azure with 2 spokes
-- Transit Peering between AWS and Azure
+- 1 Custom Resource group with 2 Ubuntu 18.04 VMs with iperf3 and ntttcp installed
+- Firewalls are provisioned but detached
+
 
 ### Infrastructure diagram
 
@@ -20,6 +40,7 @@ Component | Version
 Aviatrix Controller | (6.2) UserConnect-6.2.1742 
 Aviatrix Terraform Provider | 2.17
 Terraform | 0.12
+Azure Terraform Provider | 2.30
 
 ### Modules
 
@@ -28,12 +49,16 @@ Module Name | Version | Description
 [terraform-aviatrix-modules/azure-transit-firenet/aviatrix](https://registry.terraform.io/modules/terraform-aviatrix-modules/azure-transit-firenet/aviatrix/1.0.2) | 1.1.1 | This module deploys a VNET, Aviatrix transit gateways and firewall instances.
 [terraform-aviatrix-modules/azure-spoke/aviatrix](https://registry.terraform.io/modules/terraform-aviatrix-modules/azure-spoke/aviatrix/1.0.1) | 1.1.1 | This module deploys a VNET and an Aviatrix spoke gateway in Azure and attaches it to an Aviatrix Transit Gateway
 [terraform-aviatrix-modules/mc-transit-peering/aviatrix](https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-transit-peering/aviatrix/1.0.0) | 1.0.0 | Creates a full mesh transit peering from a list of transit gateway names
+[Azure/compute/azurerm](https://registry.terraform.io/modules/Azure/compute/azurerm/0.9.0) | 0.9.0 | Azure Terraform module to deploy virtual machines
 
 ### Variables
 
 The variables are defined in ```terraform.tfvars```.
 
 **Note:** ```ha_enabled = false``` controls whether ha is built for spokes. 
+
+```instance_size``` controls the size of all the transit spokes and gateways. It has been increased to use ```Standard_F16s_v2```
+```test_instance_size``` controls the size of the test vm it is also set at ```Standard_F16s_v2```
 
 ### Prerequisites
 
