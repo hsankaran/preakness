@@ -43,6 +43,7 @@ The variables are defined in ```terraform.tfvars```.
 **Note:** ```ha_enabled = false``` controls whether ha is built for spokes. 
 
 ```instance_size``` controls the size of all the transit spokes and gateways. It has been increased to use ```Standard_F16s_v2```
+
 ```test_instance_size``` controls the size of the test vm it is also set at ```Standard_F16s_v2```
 
 ### Prerequisites
