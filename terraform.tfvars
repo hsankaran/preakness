@@ -11,8 +11,13 @@ azure_account_name = "REPLACE_ME"
 firewall_image         = "Palo Alto Networks VM-Series Next-Generation Firewall Bundle 2"
 firewall_image_version = "9.1.0"
 
+# Aviatrix Gateway size
+instance_size = "Standard_F16s_v2"
+# Test Kit
+test_instance_size = "Standard_F16s_v2" # 8000 Mbps
+
 # HA flags
-ha_enabled = true
+ha_enabled = false
 
 # Transit Gateway Network Variables
 //Azure
@@ -27,3 +32,6 @@ azure_spoke1_region = "East US"
 azure_spoke2_name   = "azure-app2s2"
 azure_spoke2_cidr   = "10.21.3.0/24"
 azure_spoke2_region = "East US"
+
+
+

@@ -87,3 +87,18 @@ variable "ha_enabled" {
   default = true
 }
 
+variable "azure_test_vm_rg" {
+  type    = string
+  default = ""
+}
+
+variable "instance_size" {
+  type    = string
+  default = ""
+}
+
+variable "test_instance_size" {
+  type    = string
+  default = ""
+}
+

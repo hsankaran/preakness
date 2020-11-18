@@ -5,3 +5,7 @@ provider "aviatrix" {
   version       = "2.17"
 }
 
+provider "azurerm" {
+  version = "=2.30.0"
+  features {}
+}
