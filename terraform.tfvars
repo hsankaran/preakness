@@ -22,7 +22,7 @@ ha_enabled = false
 # Transit Gateway Network Variables
 //Azure
 azure_transit_cidr1 = "10.21.2.0/24"
-azure_region1       = "Wast US"
+azure_region1       = "West US"
 
 # Transit Spoke Parameters
 // Azure Spokes
