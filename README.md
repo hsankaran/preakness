@@ -64,9 +64,17 @@ The variables are defined in ```terraform.tfvars```.
 
 ### Test command examples
 
+You can ssh into the the test vm's created in azure like so...
+
+```ssh azureuser@TESTVM1PUBLICIP```
+
+```ssh azureuser@TESTVM1PUBLICIP```
+
+
 #### iperf
 
 Replace with the private IP of one of the created test vms - check Azure console for the value.
+Run the client on one test vm and the server on another test vm.
 
 ```
 iperf3 -c 10.21.3.20 -i 2 -t 30 -M 1400 -P 1 -p 5201
