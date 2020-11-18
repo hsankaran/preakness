@@ -53,6 +53,7 @@ The variables are defined in ```terraform.tfvars```.
 - Sufficient limits in place for Azure region in scope **_(EIPs, Compute quotas, etc.)_**
 - Active subscriptions for the NGFW firewall images in scope
 - terraform .12 in the user environment ```terraform -v```
+- [Install the the azure cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos) on the workstation and authenticate with ```az login```
 
 ### Workflow
 
@@ -64,6 +65,8 @@ The variables are defined in ```terraform.tfvars```.
 ### Test command examples
 
 #### iperf
+
+Replace with the private IP of one of the created test vms - check Azure console for the value.
 
 ```
 iperf3 -c 10.21.3.20 -i 2 -t 30 -M 1400 -P 1 -p 5201
