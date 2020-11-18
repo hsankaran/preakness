@@ -92,3 +92,39 @@ A significant amount of infrastructure will be provisioned.
 - Observe progress in terminal
 - Observe progress in Terraform Cloud (Optional)
 
+### Terraform state after provisioning
+
+
+```
+$ terraform state list
+data.template_file.azure-init
+azurerm_resource_group.example
+module.azure_spoke1.aviatrix_spoke_gateway.default
+module.azure_spoke1.aviatrix_vpc.default
+module.azure_spoke2.aviatrix_spoke_gateway.default
+module.azure_spoke2.aviatrix_vpc.default
+module.azure_test_vm1.data.azurerm_resource_group.vm
+module.azure_test_vm1.azurerm_availability_set.vm
+module.azure_test_vm1.azurerm_network_interface.vm[0]
+module.azure_test_vm1.azurerm_network_interface_security_group_association.test[0]
+module.azure_test_vm1.azurerm_network_security_group.vm
+module.azure_test_vm1.azurerm_network_security_rule.vm[0]
+module.azure_test_vm1.azurerm_public_ip.vm[0]
+module.azure_test_vm1.azurerm_virtual_machine.vm-linux[0]
+module.azure_test_vm1.random_id.vm-sa
+module.azure_test_vm2.data.azurerm_resource_group.vm
+module.azure_test_vm2.azurerm_availability_set.vm
+module.azure_test_vm2.azurerm_network_interface.vm[0]
+module.azure_test_vm2.azurerm_network_interface_security_group_association.test[0]
+module.azure_test_vm2.azurerm_network_security_group.vm
+module.azure_test_vm2.azurerm_network_security_rule.vm[0]
+module.azure_test_vm2.azurerm_public_ip.vm[0]
+module.azure_test_vm2.azurerm_virtual_machine.vm-linux[0]
+module.azure_test_vm2.random_id.vm-sa
+module.azure_transit_1.aviatrix_firenet.firenet_ha[0]
+module.azure_transit_1.aviatrix_firewall_instance.firewall_instance_1[0]
+module.azure_transit_1.aviatrix_firewall_instance.firewall_instance_2[0]
+module.azure_transit_1.aviatrix_transit_gateway.default
+module.azure_transit_1.aviatrix_vpc.default
+```
+

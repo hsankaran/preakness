@@ -82,32 +82,3 @@ data "template_file" "azure-init" {
   template = "${file("${path.module}/azure-vm-config/azure_bootstrap.sh")}"
 }
 
-# Aviatrix VPC Data Source
-data "aviatrix_vpc" "spoke1_vnet" {
-  name = module.azure_spoke1.vnet.name
-}
-
-data "aviatrix_vpc" "spoke2_vnet" {
-  name = module.azure_spoke2.vnet.name
-}
-
-output "spoke1_vnet_public_subnet_id" {
-  value = data.aviatrix_vpc.spoke1_vnet.public_subnets[1].subnet_id
-}
-
-output "spoke2_vnet_public_subnet_id" {
-  value = data.aviatrix_vpc.spoke2_vnet.public_subnets[1].subnet_id
-}
-
-output "test-s1-module-output" {
-  value = module.azure_spoke1.vnet.public_subnets[1].subnet_id
-}
-
-output "azure_test_vm1_public_ip" {
-  value = module.azure_test_vm1.public_ip_address
-}
-
-output "azure_test_vm2_public_ip" {
-  value = module.azure_test_vm2.public_ip_address
-}
-
