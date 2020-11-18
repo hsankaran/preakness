@@ -12,9 +12,9 @@ firewall_image         = "Palo Alto Networks VM-Series Next-Generation Firewall 
 firewall_image_version = "9.1.0"
 
 # Aviatrix Gateway size
-instance_size = "Standard_D16s_v3"
+instance_size = "Standard_F16s_v2"
 # Test Kit
-test_instance_size = "Standard_D16s_v3" # 8000 Mbps
+test_instance_size = "Standard_F16s_v2" # 8000 Mbps
 
 # HA flags
 ha_enabled = false
