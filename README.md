@@ -68,7 +68,7 @@ You can ssh into the the test vm's created in azure like so...
 
 ```ssh azureuser@TESTVM1PUBLICIP```
 
-```ssh azureuser@TESTVM1PUBLICIP```
+```ssh azureuser@TESTVM2PUBLICIP```
 
 
 #### iperf
