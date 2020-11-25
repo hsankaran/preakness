@@ -10,6 +10,7 @@ module "azure_transit_1" {
   attached               = false
   firewall_image         = var.firewall_image
   firewall_image_version = var.firewall_image_version
+  instance_size = var.instance_size
 }
 
 # Azure Spoke 1 
